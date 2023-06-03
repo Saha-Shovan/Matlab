@@ -1,0 +1,44 @@
+% %Nyquist Rate Sampling
+clc;
+
+fs= 2800;
+t= 0:1/fs:27/fs;
+x=sin(2*pi*300*t)+cos(2*pi*1400*t);
+xm=abs(fft(x));
+disp('xm');
+disp(xm);
+k=0:length(xm)-1;
+subplot(2,2,1);
+stem(100*k,xm);
+xlabel('Hz');
+ylabel('magnitude');
+title("NR Sampling");
+
+
+
+fs= 1500;
+t= 0:1/fs:14/fs;
+x=cos(2*pi*400*t)+cos(2*pi*700*t);
+xm1=abs(fft(x));
+disp('xm1');
+disp(xm1);
+k=0:length(xm1)-1;
+subplot(2,2,2);
+stem(100*k,xm1);
+xlabel('Hz');
+ylabel('magnitude');
+title("UNDER Sampling");
+
+
+fs= 3500;
+t= 0:1/fs:34/fs;
+x=cos(2*pi*400*t)+cos(2*pi*700*t);
+xm2=abs(fft(x));
+disp('xm2');
+disp(xm2);
+k=0:length(xm2)-1;
+subplot(2,2,3);
+stem(100*k,xm2);
+xlabel('Hz');
+ylabel('magnitude');
+title("OVER Sampling");
